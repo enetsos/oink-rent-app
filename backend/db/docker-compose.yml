@@ -1,0 +1,16 @@
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: oink-container
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=admin123
+    ports:
+      - "1433:1433"    # Esponi la porta 1433 per la connessione al DBs
+    networks:
+      - sql-network
+    restart: always  # Riavvia il contenitore automaticamente in caso di errore
+
+networks:
+  sql-network:
+    driver: bridge
