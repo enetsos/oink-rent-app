@@ -1,6 +1,8 @@
 using System.Text;
 using backend.Data;
+using backend.Interfaces;
 using backend.Models;
+using backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +51,8 @@ builder.Services.AddAuthentication(opt =>
         };
     });
 
+builder.Services.AddScoped<ITokenService, TokenService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -60,6 +64,8 @@ if (app.Environment.IsDevelopment())
         opt
             .WithTitle("Oink API")
             .WithTheme(ScalarTheme.Saturn)
+            // with pig favicon
+            .WithFavicon("https://cdn-icons-png.flaticon.com/512/3800/3800591.png")
             .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
     });
 }
