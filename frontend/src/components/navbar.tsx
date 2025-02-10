@@ -11,7 +11,7 @@ export const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <img src="https://cdn-icons-png.flaticon.com/512/3800/3800591.png" alt="Logo" className="h-8 w-8 mr-2" />
-            <Link to="/" className="text-xl font-bold text-gray-800">OinkRent</Link>
+            <Link to="/" className="text-xl font-bold text-gray-800">Oink</Link>
           </div>
           <div className="flex items-center space-x-4">
             {!token ? (
